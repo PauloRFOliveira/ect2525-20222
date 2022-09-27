@@ -6,7 +6,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>Amor da minha Vidaaaaaaaaa</Text>
       <Text>Tô aprendendo a usar ainda, mas consegui usar.</Text>
-      <Text>Loveu Princesa</Text>
+      <Text>jmsjhifjhaifhakjhsfahkjfah</Text>
       <StatusBar style="auto" />
     </View>
   );
