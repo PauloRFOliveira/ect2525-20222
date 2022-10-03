@@ -14,6 +14,31 @@ export default function App() {
       </View>
       <View style={styles.stories}>
 
+        <View style={styles.story}>
+          <Image style={styles.imgstory} source={require('./assets/images/pernalonga.png')}/>
+          <Text>Perna</Text>
+        </View>
+
+        <View style={styles.story}>
+          <Image style={styles.imgstory} source={require('./assets/images/frajola.png')}/>
+          <Text>Frajola</Text>
+        </View>
+
+        <View style={styles.story}>
+          <Image style={styles.imgstory} source={require('./assets/images/piupiu.png')}/>
+          <Text>Piu Piu</Text>
+        </View>
+
+        <View style={styles.story}>
+          <Image style={styles.imgstory} source={require('./assets/images/patolino.png')}/>
+          <Text>Patolino</Text>
+        </View>
+
+        <View style={styles.story}>
+          <Image style={styles.imgstory} source={require('./assets/images/taz.png')}/>
+          <Text>Taz</Text>
+        </View>
+
       </View>
     </View>
   );
@@ -22,23 +47,35 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f00',
+    backgroundColor: '#fff',
     marginTop: Constants.statusBarHeight,
   },
   header: {
     flexDirection: 'row',
     padding: 10,
     height: 50,
-    backgroundColor: '#0f0',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  stories: {
-    height: 90,
-    backgroundColor: '#00f',
   },
   instagram: {
     height: 40,
     width: 110,
+  },
+  stories: {
+    flexDirection: 'row',
+    height: 90,
+    backgroundColor: '#fff',
+  },
+  story: {
+    height: 90,
+    width: 90,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+  imgstory: {
+    height: 70,
+    width: 70,
+    borderRadius: 35,
   },
 });
