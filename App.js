@@ -1,13 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import Constants from 'expo-constants';
+import {FontAwesome5} from '@expo/vector-icons';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Te amo</Text>
       <StatusBar style="auto" />
-      <Image source={{ uri: 'https://www.infoescola.com/wp-content/uploads/2017/05/universidade-federal-do-rio-grande-do-norte-ufrn-original.png'}} style={styles.ufrn}/>
-      <Image source={require('./assets/images/pernalonga.png')} style={styles.pernalonga}/>
+      <View style={styles.header}>
+        <Image style={styles.instagram} source={require('./assets/images/instagram.png')}/>
+        <FontAwesome5 name='paper-plane' size={24} color='black'/>
+      </View>
+      <View style={styles.stories}>
+
+      </View>
     </View>
   );
 }
@@ -16,21 +23,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f00',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: Constants.statusBarHeight,
   },
-  container2: {
-    flex: 1,
+  header: {
+    flexDirection: 'row',
+    padding: 10,
+    height: 50,
     backgroundColor: '#0f0',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
-  ufrn: {
-    width: 150,
-    height: 150,
+  stories: {
+    height: 90,
+    backgroundColor: '#00f',
   },
-  pernalonga: {
-    width: 100,
-    height: 100,
+  instagram: {
+    height: 40,
+    width: 110,
   },
 });
