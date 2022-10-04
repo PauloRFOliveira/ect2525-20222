@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Flatlist } from 'react-native';
 import Constants from 'expo-constants';
 import {FontAwesome5} from '@expo/vector-icons';
 
@@ -11,35 +11,54 @@ export default function App() {
       <StatusBar style="auto" />
 
       <View style={styles.header}>
+
         <Image style={styles.instagram} source={require('./assets/images/instagram.png')}/>
         <FontAwesome5 name='paper-plane' size={24} color='black'/>
+
       </View>
 
       <View style={styles.stories}>
 
         <View style={styles.story}>
+
           <Image style={styles.imgstory} source={require('./assets/images/pernalonga.png')}/>
           <Text>Perna</Text>
+
         </View>
 
         <View style={styles.story}>
+
           <Image style={styles.imgstory} source={require('./assets/images/frajola.png')}/>
           <Text>Frajola</Text>
+
         </View>
 
         <View style={styles.story}>
+
           <Image style={styles.imgstory} source={require('./assets/images/piupiu.png')}/>
           <Text>Piu Piu</Text>
+
         </View>
 
         <View style={styles.story}>
+
           <Image style={styles.imgstory} source={require('./assets/images/patolino.png')}/>
           <Text>Patolino</Text>
+
         </View>
 
         <View style={styles.story}>
+
           <Image style={styles.imgstory} source={require('./assets/images/taz.png')}/>
           <Text>Taz</Text>
+
+        </View>
+        
+        <View style={styles.story}>
+
+          <Image style={styles.imgstory} source={require('./assets/images/felicia.jpg')}/>
+          <Text>Felicia</Text>
+
         </View>
 
       </View>
@@ -51,9 +70,12 @@ export default function App() {
           <View style={styles.postHeader}>
             
             <View style={styles.postHeaderInfo}>
+
               <Image style={styles.postHeaderImage} source={require('./assets/images/piupiu.png')}/>
               <Text>Piu Piu</Text>
+
             </View>
+
             <FontAwesome5 name="ellipsis-h" size={24}  color="black"/>
 
           </View>
@@ -74,9 +96,12 @@ export default function App() {
           <View style={styles.postHeader}>
             
             <View style={styles.postHeaderInfo}>
+
               <Image style={styles.postHeaderImage} source={require('./assets/images/patolino.png')}/>
               <Text>Patolino</Text>
+
             </View>
+
             <FontAwesome5 name="ellipsis-h" size={24} color="black"/>
 
           </View>
@@ -85,7 +110,33 @@ export default function App() {
 
           <View style={styles.postFooter}>
 
-            <FontAwesome5 style={styles.postFooterIcons} name="hearts" size={36} color="black"/>
+            <FontAwesome5 style={styles.postFooterIcons} name="heart" size={36} color="black"/>
+            <FontAwesome5 style={styles.postFooterIcons} name="comment" size={36} color="black"/>
+
+          </View>
+
+        </View>
+
+        <View style={styles.post}>
+
+          <View style={styles.postHeader}>
+
+            <View style={styles.postHeaderInfo}>
+
+              <Image style={styles.postHeaderImage} source={require('./assets/images/felicia.jpg')}/>
+              <Text>Felicia</Text>
+
+            </View>
+
+            <FontAwesome5 name="ellipsis-h" size={24} color="black"/>
+
+          </View>
+
+          <Image style={styles.postImage} aspectRatio={1.333} source={require('./assets/images/looneytoons.jpg')}/>
+
+          <View style={styles.postFooter}>
+
+            <FontAwesome5 style={styles.postFooterIcons} name="heart" size ={36} color="black"/>
             <FontAwesome5 style={styles.postFooterIcons} name="comment" size={36} color="black"/>
 
           </View>
