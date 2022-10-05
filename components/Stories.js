@@ -1,52 +1,62 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 
 export default function Stories(){
+    const stories = [
+        {
+            id: 1,
+            nome: 'Perna',
+            src: require('../assets/images/pernalonga.png'),
+        },
+        {
+            id: 2,
+            nome: 'Frajola',
+            src: require('../assets/images/frajola.png'),
+        },
+        {
+            id: 3,
+            nome: 'Piu Piu',
+            src: require('../assets/images/piupiu.png'),
+        },
+        {
+            id: 4,
+            nome: 'Patolino',
+            src: require('../assets/images/patolino.png'),
+        },
+        {
+            id: 5,
+            nome: 'Taz',
+            src: require('../assets/images/taz.png'),
+        },
+        {
+            id: 6,
+            nome: 'Felicia',
+            src: require('../assets/images/felicia.jpg'),
+        },
+    ];
+
+    function renderItem({ item }){
+        return(
+            <View style={styles.story}>
+
+                <Image style={styles.imgstory} source={item.src}/>
+                <Text>{item.nome}</Text>
+
+            </View>
+        );
+    }
+
     return(
         
         <View style={styles.stories}>
 
-            <View style={styles.story}>
-
-                <Image style={styles.imgstory} source={require('../assets/images/pernalonga.png')}/>
-                <Text>Perna</Text>
-
-            </View>
-
-            <View style={styles.story}>
-
-                <Image style={styles.imgstory} source={require('../assets/images/frajola.png')}/>
-                <Text>Frajola</Text>
-
-            </View>
-
-            <View style={styles.story}>
-
-                <Image style={styles.imgstory} source={require('../assets/images/piupiu.png')}/>
-                <Text>Piu Piu</Text>
-
-            </View>
-
-            <View style={styles.story}>
-
-                <Image style={styles.imgstory} source={require('../assets/images/patolino.png')}/>
-                <Text>Patolino</Text>
-
-            </View>
-
-            <View style={styles.story}>
-
-                <Image style={styles.imgstory} source={require('../assets/images/taz.png')}/>
-                <Text>Taz</Text>
-
-            </View>
-        
-            <View style={styles.story}>
-
-                <Image style={styles.imgstory} source={require('../assets/images/felicia.jpg')}/>
-                <Text>Felicia</Text>
-
-            </View>
+            <FlatList
+                data={stories}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+            />
 
         </View>
 
