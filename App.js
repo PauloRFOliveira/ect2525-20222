@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginTop: Constants.statusBarHeight,
   },
+<<<<<<< HEAD
   header: {
     flexDirection: 'row',
     padding: 10,
@@ -221,3 +222,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
   }
 });
+=======
+});
+>>>>>>> e45212b (Criação dos Pacotes)
