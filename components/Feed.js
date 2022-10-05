@@ -1,19 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import {FontAwesome5} from '@expo/vector-icons';
 
 export default function Feed(){
-    return(
-        <View style={styles.feed}>
-        
+    const feed = [
+        {
+            id: 1,
+            nome: 'Piu Piu',
+            imgPerfil: require('../assets/images/piupiu.png'),
+            imgPost: require('../assets/images/tinytoons.jpg'),
+            aspectRatio: 1.333,
+        },
+        {
+            id: 2,
+            nome: 'Patolino',
+            imgPerfil: require('../assets/images/patolino.png'),
+            imgPost: require('../assets/images/tinytoons2.jpg'),
+            aspectRatio: 1.776,
+        },
+        {
+            id: 3,
+            nome: 'Felicia',
+            imgPerfil: require('../assets/images/felicia.jpg'),
+            imgPost: require('../assets/images/looneytoons.jpg'),
+            aspectRatio: 1.333,
+        },
+    ];
+
+    function renderItem({ item }){
+        return(
             <View style={styles.post}>
 
                 <View style={styles.postHeader}>
-            
+
                     <View style={styles.postHeaderInfo}>
 
-                        <Image style={styles.postHeaderImage} source={require('../assets/images/piupiu.png')}/>
-                        <Text>Piu Piu</Text>
+                        <Image style={styles.postHeaderImage} source={item.imgPerfil}/>
+                        <Text>{item.nome}</Text>
 
                     </View>
 
@@ -21,33 +44,7 @@ export default function Feed(){
 
                 </View>
 
-                <Image style={styles.postImage} aspectRatio={1.333} source={require('../assets/images/tinytoons.jpg')}/>
-
-                <View style={styles.postFooter}>
-
-                    <FontAwesome5 style={styles.postFooterIcons} name="heart" size={36} color="black"/>
-                    <FontAwesome5 styçe={styles.postFooterIcons} name="comment" size={36} color="black"/>
-
-                </View>
-
-            </View>
-
-            <View style={styles.post}>
-
-                <View style={styles.postHeader}>
-            
-                    <View style={styles.postHeaderInfo}>
-
-                        <Image style={styles.postHeaderImage} source={require('../assets/images/patolino.png')}/>
-                        <Text>Patolino</Text>
-
-                    </View>
-
-                    <FontAwesome5 name="ellipsis-h" size={24} color="black"/>
-
-                </View>
-
-                <Image style={styles.postImage} aspectRatio={1.776} source={require('../assets/images/tinytoons2.jpg')}/>
+                <Image style={styles.postImage} aspectRatio={item.aspectRatio} source={item.imgPost}/>
 
                 <View style={styles.postFooter}>
 
@@ -57,32 +54,18 @@ export default function Feed(){
                 </View>
 
             </View>
+        );
+    }
 
-            <View style={styles.post}>
-
-                <View style={styles.postHeader}>
-
-                    <View style={styles.postHeaderInfo}>
-
-                        <Image style={styles.postHeaderImage} source={require('../assets/images/felicia.jpg')}/>
-                        <Text>Felicia</Text>
-
-                    </View>
-
-                    <FontAwesome5 name="ellipsis-h" size={24} color="black"/>
-
-                </View>
-
-                <Image style={styles.postImage} aspectRatio={1.333} source={require('../assets/images/looneytoons.jpg')}/>
-
-                <View style={styles.postFooter}>
-
-                    <FontAwesome5 style={styles.postFooterIcons} name="heart" size ={36} color="black"/>
-                    <FontAwesome5 style={styles.postFooterIcons} name="comment" size={36} color="black"/>
-
-                </View>
-
-            </View>
+    return(
+        <View style={styles.feed}>
+        
+            <FlatList
+                data={feed}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                showsVerticalScrollIndicator={false}
+            />
 
         </View>
     );
