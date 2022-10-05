@@ -1,31 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import {FontAwesome5} from '@expo/vector-icons';
 
 export default function Feed(){
-    const feed = [
-        {
-            id: 1,
-            nome: 'Piu Piu',
-            imgPerfil: require('../assets/images/piupiu.png'),
-            imgPost: require('../assets/images/tinytoons.jpg'),
-            aspectRatio: 1.333,
-        },
-        {
-            id: 2,
-            nome: 'Patolino',
-            imgPerfil: require('../assets/images/patolino.png'),
-            imgPost: require('../assets/images/tinytoons2.jpg'),
-            aspectRatio: 1.776,
-        },
-        {
-            id: 3,
-            nome: 'Felicia',
-            imgPerfil: require('../assets/images/felicia.jpg'),
-            imgPost: require('../assets/images/looneytoons.jpg'),
-            aspectRatio: 1.333,
-        },
-    ];
+    const [feed, setFeed] = useState([]);
+
+    useEffect(function (){
+        async function getData(){
+            const response = await fetch('https://mobile.ect.ufrn.br:3000/feed');
+            const feed = await response.json();
+            setFeed(feed)
+        }
+        getData();
+    }, [])
 
     function renderItem({ item }){
         return(
@@ -35,8 +22,8 @@ export default function Feed(){
 
                     <View style={styles.postHeaderInfo}>
 
-                        <Image style={styles.postHeaderImage} source={item.imgPerfil}/>
-                        <Text>{item.nome}</Text>
+                        <Image style={styles.postHeaderImage} source={{ uri: item.imgPerfilUri }}/>
+                        <Text>{item.nomeUsuario}</Text>
 
                     </View>
 
@@ -44,7 +31,7 @@ export default function Feed(){
 
                 </View>
 
-                <Image style={styles.postImage} aspectRatio={item.aspectRatio} source={item.imgPost}/>
+                <Image style={styles.postImage} aspectRatio={item.aspectRatio} source={{ uri: item.imgPostUri }}/>
 
                 <View style={styles.postFooter}>
 
