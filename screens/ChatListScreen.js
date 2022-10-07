@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, View, Text, FlatList, Image} from "react-native";
+import {StyleSheet, View, Text, FlatList, Image, TouchableOpacity} from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-export default function ChatListScreen(){
+export default function ChatListScreen({navigation}){
     const [chatlist, setChatlist] = useState([]);
 
     useEffect(function (){
@@ -16,7 +16,7 @@ export default function ChatListScreen(){
 
     function renderItem({ item }){
         return(
-            <View style={styles.chat}>
+            <TouchableOpacity style={styles.chat} onPress={() => navigation.navigate('ChatScreen', { id: item.id })}>
 
                 <Image style={styles.imgChat} source={{ uri: item.imgPerfilUri}}/>
                 <View style={styles.chatText}>
@@ -26,7 +26,7 @@ export default function ChatListScreen(){
 
                 </View>
 
-            </View>
+            </TouchableOpacity>
         );
     }
 
